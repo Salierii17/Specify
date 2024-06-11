@@ -1,0 +1,35 @@
+name: specify
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  appinio_video_player: ^1.2.2
+  assets_audio_player: ^3.1.1
+  audioplayers: ^6.0.0
+  chewie: ^1.7.4
+  cloud_firestore: ^5.0.0
+  firebase_auth: ^5.0.0
+  firebase_core: ^3.0.0
+  flutter:
+    sdk: flutter
+  flutter_gradient_animation_text: ^1.0.2
+  provider: ^6.1.1
+  video_player: ^2.8.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/music/
+    - assets/images/
+    - assets/images/icons/
+    - assets/images/song_cover/
