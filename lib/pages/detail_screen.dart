@@ -3,21 +3,20 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_gradient_animation_text/flutter_gradient_animation_text.dart';
-import 'package:specify/model/songDetails.dart';
+import 'package:specify/model/song_details.dart';
 import 'package:assets_audio_player/assets_audio_player.dart';
 
-
 class DetailScreen extends StatefulWidget {
-  final List<SongDetails> songList; 
+  final List<SongDetails> songList;
   int currentIndex;
   final SongDetails songDetails;
 
   DetailScreen({
-    Key? key,
+    super.key,
     required this.songList,
     required this.currentIndex,
     required this.songDetails,
-  }) : super(key: key);
+  });
 
   @override
   _DetailScreenState createState() => _DetailScreenState();
@@ -52,13 +51,12 @@ class _DetailScreenState extends State<DetailScreen> {
         ),
       ),
       showNotification: true,
-    ); 
+    );
   }
 
   @override
   void dispose() {
-    assetsAudioPlayer
-        .dispose(); 
+    assetsAudioPlayer.dispose();
     super.dispose();
   }
 
@@ -123,7 +121,8 @@ class _DetailScreenState extends State<DetailScreen> {
             height: 350,
             width: 350,
             decoration: const BoxDecoration(
-                image: DecorationImage(image: AssetImage('assets/images/disk.png'))),
+                image: DecorationImage(
+                    image: AssetImage('assets/images/disk.png'))),
             child: CircleAvatar(
               backgroundImage: AssetImage(widget.songDetails.imageAssets),
               child: const CircleAvatar(
@@ -194,11 +193,9 @@ class _DetailScreenState extends State<DetailScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   IconButton(
-                    onPressed: () {
-
-                    },
+                    onPressed: () {},
                     icon: Image.asset(
-                      'assets/images/rewind.png', 
+                      'assets/images/rewind.png',
                       width: 40,
                       height: 40,
                     ),
@@ -219,10 +216,9 @@ class _DetailScreenState extends State<DetailScreen> {
                     },
                   ),
                   IconButton(
-                    onPressed: () {
-                    },
+                    onPressed: () {},
                     icon: Image.asset(
-                      'assets/images/forward.png', 
+                      'assets/images/forward.png',
                       width: 40,
                       height: 40,
                     ),

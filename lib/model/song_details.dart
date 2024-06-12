@@ -30,7 +30,7 @@ var songList = [
     artist: 'Rachel Platten',
     duration: 207,
     imageAssets: 'assets/images/song_cover/Fight_song.jpeg',
-    songUrl: 'assets/music/fight_song.mp3', 
+    songUrl: 'assets/music/fight_song.mp3',
     isLiked: false,
   ),
   SongDetails(
@@ -38,7 +38,7 @@ var songList = [
     duration: 234,
     artist: 'Metro Boomin',
     imageAssets: 'assets/images/song_cover/Annihilate.jpeg',
-    songUrl: 'assets/music/Annihilate.mp3', 
+    songUrl: 'assets/music/Annihilate.mp3',
     isLiked: false,
   ),
   SongDetails(
@@ -46,9 +46,7 @@ var songList = [
     duration: 234,
     artist: 'Metro Boomin',
     imageAssets: 'assets/images/song_cover/Calling.jpg',
-    songUrl: 'assets/music/Calling.mp3', 
+    songUrl: 'assets/music/Calling.mp3',
     isLiked: false,
   ),
 ];
-
-

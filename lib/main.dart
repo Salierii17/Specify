@@ -1,16 +1,16 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:specify/pages/HomePage.dart';
-import 'package:specify/pages/LibraryPage.dart';
-import 'package:specify/pages/MorePage.dart';
+import 'package:specify/pages/home_screen.dart';
+import 'package:specify/pages/library_screen.dart';
+import 'package:specify/pages/more_screen.dart';
 
 void main() {
   runApp(const MainApp());
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({Key? key}) : super(key: key);
+  const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class MainApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -42,7 +42,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: tabs[_currentIndex],
-      
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) {
@@ -68,5 +67,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-

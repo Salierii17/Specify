@@ -1,11 +1,11 @@
 // ignore_for_file: library_private_types_in_public_api, file_names
 
 import 'package:flutter/material.dart';
-import 'package:specify/pages/DetailScreen.dart';
-import 'package:specify/model/songDetails.dart';
+import 'package:specify/pages/detail_screen.dart';
+import 'package:specify/model/song_details.dart';
 
 class LibraryPage extends StatefulWidget {
-  const LibraryPage({Key? key}) : super(key: key);
+  const LibraryPage({super.key});
 
   @override
   _LibraryPageState createState() => _LibraryPageState();
@@ -14,7 +14,7 @@ class LibraryPage extends StatefulWidget {
 class _LibraryPageState extends State<LibraryPage> {
   List<SongDetails> likedSongs =
       List.from(songList.where((song) => song.isLiked));
-  int currentIndex = 0; 
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {

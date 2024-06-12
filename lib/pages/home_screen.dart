@@ -1,12 +1,14 @@
 // ignore_for_file: file_names, library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:specify/pages/DetailScreen.dart';
-import 'package:specify/model/songDetails.dart';
+import 'package:specify/pages/detail_screen.dart';
+import 'package:specify/model/song_details.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -41,7 +43,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(top: 25, left: 10),
+          padding: const EdgeInsets.only(left: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -119,31 +121,32 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
+              // Music Playlist
               Container(
                 margin: const EdgeInsets.only(
-                    top: 5, left: 50, right: 0, bottom: 20),
-                child: SizedBox(
-                  height: 250,
-                  width: double.infinity,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      _buildImageWithOverlay(
-                        "assets/images/relax.jpg",
-                        "Chill",
-                        Icons.play_arrow_outlined,
-                      ),
-                      _buildImageWithOverlay(
-                        "assets/images/pop.jpeg",
-                        "Pop",
-                        Icons.play_arrow_outlined,
-                      ),
-                      _buildImageWithOverlay(
-                        "assets/images/trending.jpg",
-                        "Trending",
-                        Icons.play_arrow_outlined,
-                      ),
-                    ],
+                    top: 5, bottom: 20),
+                child: CarouselSlider(
+                  items: [
+                    _buildImageWithOverlay(
+                      "assets/images/relax.jpg",
+                      "Chill",
+                      Icons.play_arrow_sharp,
+                    ),
+                    _buildImageWithOverlay(
+                      "assets/images/pop.jpeg",
+                      "Pop",
+                      Icons.play_arrow_outlined,
+                    ),
+                    _buildImageWithOverlay(
+                      "assets/images/trending.jpg",
+                      "Trending",
+                      Icons.play_arrow_outlined,
+                    ),
+                  ],
+                  options: CarouselOptions(
+                    height: 230,
+                    enableInfiniteScroll: true,
+                    enlargeCenterPage: true,
                   ),
                 ),
               ),
@@ -228,17 +231,17 @@ class _HomePageState extends State<HomePage> {
 Widget _buildImageWithOverlay(
     String imagePath, String text, IconData iconData) {
   return Padding(
-    padding: const EdgeInsets.only(left: 4, right: 50),
+    padding: const EdgeInsets.symmetric(horizontal: 5),
     child: Stack(
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(10),
-          child: Image.asset(imagePath),
+          child: Image.asset(imagePath,fit: BoxFit.cover, width: 270, height: 250,),
         ),
         Positioned(
-          bottom: 10,
-          left: 15,
-          right: 8,
+          bottom: 5,
+          left: 12,
+          right: 5,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
