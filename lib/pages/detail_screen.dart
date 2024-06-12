@@ -25,6 +25,7 @@ class DetailScreen extends StatefulWidget {
 class _DetailScreenState extends State<DetailScreen> {
   AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
   bool isPlaying = false;
+   bool isAudioLoaded = false;
   Duration currentPosition = Duration.zero;
 
   @override
@@ -207,7 +208,11 @@ class _DetailScreenState extends State<DetailScreen> {
                       if (isPlaying) {
                         assetsAudioPlayer.pause();
                       } else {
+                        if (!isAudioLoaded){
                         _loadAudio();
+                        isAudioLoaded = true;
+
+                        }
                         assetsAudioPlayer.play();
                       }
                       setState(() {

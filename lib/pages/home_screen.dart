@@ -1,7 +1,7 @@
 // ignore_for_file: file_names, library_private_types_in_public_api
 
+
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:specify/pages/detail_screen.dart';
 import 'package:specify/model/song_details.dart';
@@ -79,7 +79,6 @@ class _HomePageState extends State<HomePage> {
                     top: 10, right: 15, left: 5, bottom: 20),
                 child: Container(
                   height: 50,
-                  width: 380,
                   decoration: BoxDecoration(
                       color: Colors.deepPurple.shade100,
                       borderRadius: BorderRadius.circular(8)),
@@ -87,13 +86,10 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Container(
                         margin: const EdgeInsets.symmetric(horizontal: 15),
-                        height: 50,
                         width: 200,
                         child: TextFormField(
                           controller: searchController,
-                          onChanged: (query) {
-                            filterSongs(query);
-                          },
+                          onChanged: (query) => filterSongs(query),
                           decoration: const InputDecoration(
                               hintText: "Search the music",
                               hintStyle: TextStyle(
@@ -106,51 +102,53 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              Container(
-                height: 50,
-                margin: const EdgeInsets.only(left: 5),
-                child: Transform.rotate(
-                  angle: 0 * (3.141592653589793 / 180),
-                  child: const Text(
-                    'My Playlist',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold,
+              Row(
+                children: [
+                  Container(
+                      margin: const EdgeInsets.only(left: 10, right: 12, bottom: 0),
+                      child: const RotatedBox(
+                        quarterTurns: -1,
+                        child: Text(
+                          'Your Playlist',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      )),
+                  Expanded(
+                    child: SizedBox(
+                      // Music Playlist
+                      child: CarouselSlider(
+                        items: [
+                          _buildImageWithOverlay(
+                            "assets/images/relax.jpg",
+                            "Chill",
+                            Icons.play_arrow_sharp,
+                          ),
+                          _buildImageWithOverlay(
+                            "assets/images/pop.jpeg",
+                            "Pop",
+                            Icons.play_arrow_outlined,
+                          ),
+                          _buildImageWithOverlay(
+                            "assets/images/trending.jpg",
+                            "Trending",
+                            Icons.play_arrow_outlined,
+                          ),
+                        ],
+                        options: CarouselOptions(
+                          height: 230,
+                          // enableInfiniteScroll: true,
+                          enlargeCenterPage: true,
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                ],
               ),
-              // Music Playlist
-              Container(
-                margin: const EdgeInsets.only(
-                    top: 5, bottom: 20),
-                child: CarouselSlider(
-                  items: [
-                    _buildImageWithOverlay(
-                      "assets/images/relax.jpg",
-                      "Chill",
-                      Icons.play_arrow_sharp,
-                    ),
-                    _buildImageWithOverlay(
-                      "assets/images/pop.jpeg",
-                      "Pop",
-                      Icons.play_arrow_outlined,
-                    ),
-                    _buildImageWithOverlay(
-                      "assets/images/trending.jpg",
-                      "Trending",
-                      Icons.play_arrow_outlined,
-                    ),
-                  ],
-                  options: CarouselOptions(
-                    height: 230,
-                    enableInfiniteScroll: true,
-                    enlargeCenterPage: true,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
               Expanded(
                 child: ListView.builder(
                   itemBuilder: (context, index) {
@@ -236,7 +234,12 @@ Widget _buildImageWithOverlay(
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(10),
-          child: Image.asset(imagePath,fit: BoxFit.cover, width: 270, height: 250,),
+          child: Image.asset(
+            imagePath,
+            fit: BoxFit.cover,
+            width: 270,
+            height: 250,
+          ),
         ),
         Positioned(
           bottom: 5,
