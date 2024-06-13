@@ -1,6 +1,6 @@
 # Specify Music App
 
-Specify is a music app developed using Flutter and Java, designed to provide users with a seamless music listening experience.
+Specify is a music app developed using Flutter Framework and Dart Programming Language, designed to provide users with a seamless music listening experience.
 
 ## Description
 
